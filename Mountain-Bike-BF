@@ -1,0 +1,101 @@
+
+var img;  // Declare variable 'img'.
+var JUMP = 15;
+var shipimg;
+var s;
+var maxSpeed = 6;
+var img1;
+var lives;
+var score;
+
+function setup() {
+  createCanvas(1440, 780);
+  
+  //shipimg.maxSpeed = 6;
+ 
+  img = loadImage("assets/bike.png");  // abrir la imagen
+  img1 = loadImage("assets/tuberia.png");
+  img11 = loadImage("assets/tuberia1.png"); 
+  img111 = loadImage("assets/tuberia2.png"); 
+  img1111 = loadImage("assets/salida.png");
+  img11111 = loadImage("assets/llegada.png");
+  
+  img2 = loadImage("assets/nube.jpg");
+  img3 = loadImage("assets/nube1.jpg");
+  img4 = loadImage("assets/nube2.jpg");
+  img5 = loadImage("assets/nube3.jpg");
+  
+  img6 = loadImage("assets/piso.png"); 
+  img7 = loadImage("assets/piso2.png");
+  //img8 = loadImage("assets/fondo.jpg");
+  
+  fill(255);
+  textAlign(CENTER);
+  text("lives = 3", width/2, 20);
+   
+   //score = 0;
+  
+  
+}
+
+function draw() {
+  
+  // Esta la imagen en el punto especifico
+  image(img, 0, 400);
+  
+  image(img, 0, height/1, img.width/1, img.height/1);
+
+  image(img1, 300, 300);
+  image(img1, 0, height/1, img.width/1, img.height/1);
+  
+  image(img11, 650, 200);
+  image(img11, 0, height/1, img.width/1, img.height/1);
+  
+  image(img111, 1050, 300);
+  image(img111, 0, height/1, img.width/1, img.height/1);
+  
+  image(img1111, 0, 300);
+  image(img1111, 0, height/1, img.width/1, img.height/1);
+  
+  image(img11111, 1250, 0);
+  image(img11111, 0, height/1, img.width/1, img.height/1);
+  
+  image(img2, 0, 0);
+  image(img2, 0, height/1, img.width/1, img.height/1);
+  
+  image(img3, 500, 10);
+  image(img3, 0, height/1, img.width/1, img.height/1);
+  
+  image(img4, 900, 50);
+  image(img4, 0, height/1, img.width/1, img.height/1);
+  
+  image(img5, 30, 40);
+  image(img5, 0, height/1, img.width/1, img.height/1);
+  
+  image(img6, 0, 630); 
+  image(img6, 0, height/1, img.width/1, img.height/1);
+  
+  image(img7, 600, 630); 
+  image(img7, 0, height/1, img.width/1, img.height/1);
+  
+  
+  image(img8, 0, 0); 
+  image(img8, 0, height/1, img.width/1, img.height/1);
+  
+  for(var i=0; i<allSprites.length; i++) {
+  var s = allSprites[i];
+  if(s.position.x<-MARGIN) s.position.x = width+MARGIN;
+  if(s.position.x>width+MARGIN) s.position.x = -MARGIN;
+  if(s.position.y<-MARGIN) s.position.y = height+MARGIN;
+  if(s.position.y>height+MARGIN) s.position.y = -MARGIN;
+  }
+  
+  if(keyDown(LEFT_ARROW))
+    shipimg.velocity.x = - 2;
+  else
+  if(keyDown(RIGHT_ARROW))
+    shipimg.velocity.x = 2;
+}
+  
+
+
